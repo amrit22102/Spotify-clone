@@ -37,7 +37,24 @@ ul img{
 
 nav ul li{
     padding: 0 10px;
+    cursor: pointer;
+    
+}
 
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    
+}
+
+nav ul li a:hover{
+    background-color: rgb(20, 120, 20);
+}
+
+nav ul div{
+    
+    position: absolute;
+    right: 3px;
 }
 
 
