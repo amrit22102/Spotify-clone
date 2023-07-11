@@ -69,10 +69,7 @@ const makeAllPlays = () =>{
 
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
-        if(audioElement.played || audioElement.currentTime > 0){
-            audioElement.pause();
-            
-        }
+       
         makeAllPlays();
 
         songIndex = parseInt(e.target.id);
