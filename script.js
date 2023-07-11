@@ -9,6 +9,7 @@ let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 let masterSong = document.getElementById('masterSong');
+let songItemPlay =  document.getElementsByClassName('songItemPlay');
 
 
 let songs = [
@@ -42,6 +43,7 @@ masterPlay.addEventListener('click', ()=>{
         masterPlay.classList.remove('fa-pause-circle');
         masterPlay.classList.add('fa-play-circle');
         gif.style.opacity=0;
+        makeAllPlays();
     }
 })
 
@@ -67,6 +69,10 @@ const makeAllPlays = () =>{
 
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
+        if(audioElement.played || audioElement.currentTime > 0){
+            audioElement.pause();
+            
+        }
         makeAllPlays();
 
         songIndex = parseInt(e.target.id);
@@ -82,6 +88,14 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
 
  })
 })
+// songItemPlay.addEventListener('click', ()=>{
+//     if(audioElement.played ){
+//         audioElement.pause();
+//         songItemPlay.classList.remove('fa-pause-circle');
+//         songItemPlay.classList.add('fa-play-circle');
+//     }
+// })
+
 
 document.getElementById('next').addEventListener('click', ()=>{
     if(songIndex>=7){
